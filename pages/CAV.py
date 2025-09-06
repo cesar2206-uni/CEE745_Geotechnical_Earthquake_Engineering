@@ -96,7 +96,7 @@ def plot_accel_CAV(accel, gmtime, dt):
     axs[1].set_ylabel('Cummulative Absolute Velocity (cm/s)')
     axs[1].legend(loc="lower right")
     axs[1].grid(which='both', color='lightgray')
-
+    plt.tight_layout()
     st.pyplot(fig)
 	
     plt.close(fig)
