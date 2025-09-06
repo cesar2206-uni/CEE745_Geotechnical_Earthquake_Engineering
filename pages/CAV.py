@@ -83,7 +83,7 @@ def plot_accel_CAV(accel, gmtime, dt):
     accel = accel / 9.81  # from m/s2 to g
 
 	# Creating the subplots (3 rows, 1 column)
-    fig, axs = plt.subplots(2, 1, figsize=(8, 4), sharex=True)
+    fig, axs = plt.subplots(2, 1, figsize=(8, 9), sharex=True, gridspec_kw={'height_ratios': [1, 2]})
 
     # Plot Acceleration
     axs[0].plot(gmtime, accel, 'k')
@@ -96,7 +96,7 @@ def plot_accel_CAV(accel, gmtime, dt):
     axs[1].set_ylabel('Cummulative Absolute Velocity (cm/s)')
     axs[1].legend(loc="lower right")
     axs[1].grid(which='both', color='lightgray')
-    plt.tight_layout()
+    #plt.tight_layout()
     st.pyplot(fig)
 	
     plt.close(fig)
