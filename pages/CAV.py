@@ -79,7 +79,7 @@ def plot_accel_CAV(accel, gmtime, dt):
     # Transforming to units
     CAV_array, CAV_max = get_CAV(accel, dt)
     CAV_array = CAV_array * 100  # from m/s to cm/s
-    CAV_max = CAV_array * 100  # from m/s to cm/s
+    CAV_max = CAV_max * 100  # from m/s to cm/s
     accel = accel / 9.81  # from m/s2 to g
 
 	# Creating the subplots (3 rows, 1 column)
@@ -92,7 +92,7 @@ def plot_accel_CAV(accel, gmtime, dt):
     axs[0].grid(which='both', color='lightgray')
 
     # Plot Velocity
-    axs[1].plot(gmtime, CAV_array, 'b', label="CAV = {:.2f} cm/s".format(CAV_max))
+    axs[1].plot(gmtime, CAV_array, 'b', label="$CAV_{max}$"+ " = {:.2f} cm/s".format(CAV_max))
     axs[1].set_ylabel('Cummulative Absolute Velocity (cm/s)')
     axs[1].legend(loc="lower right")
     axs[1].grid(which='both', color='lightgray')
