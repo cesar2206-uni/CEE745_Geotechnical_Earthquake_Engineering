@@ -111,7 +111,7 @@ def read_AT2_v2(uploaded_file, scalefactor=None):
     except Exception as e:
         print("processMotion FAILED!: ", e)
         return None, None
-    
+
 
 #---------------------------------------------------------------------------------------------------
 # Base Line Correction
@@ -170,7 +170,7 @@ def plot_time_histories(gmtime, accel):
 	
 	Returns
 	=======
-	plot of acceleration vs time
+	plot of acceleration, velocities and displacements vs time
 	"""
 	
     # Computing velociies and displacements with baseline correction
