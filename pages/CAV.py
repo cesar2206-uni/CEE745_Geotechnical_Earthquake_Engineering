@@ -94,6 +94,7 @@ def plot_accel_CAV(accel, gmtime, dt):
     # Plot Velocity
     axs[1].plot(gmtime, CAV_array, 'b', label="$CAV_{max}$"+ " = {:.2f} cm/s".format(CAV_max))
     axs[1].set_ylabel('Cummulative Absolute Velocity (cm/s)')
+    axs[1].set_xlabel('Time (s)')
     axs[1].legend(loc="lower right")
     axs[1].grid(which='both', color='lightgray')
     #plt.tight_layout()
