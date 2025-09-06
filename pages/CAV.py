@@ -83,7 +83,7 @@ def plot_accel_CAV(accel, gmtime, dt):
     accel = accel / 9.81  # from m/s2 to g
 
 	# Creating the subplots (3 rows, 1 column)
-    fig, axs = plt.subplots(2, 1, figsize=(8, 9), sharex=True, gridspec_kw={'height_ratios': [1, 2]})
+    fig, axs = plt.subplots(2, 1, figsize=(8, 8), sharex=True, gridspec_kw={'height_ratios': [1, 3]})
 
     # Plot Acceleration
     axs[0].plot(gmtime, accel, 'k')
