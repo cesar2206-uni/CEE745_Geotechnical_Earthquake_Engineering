@@ -54,7 +54,7 @@ def process_hazard_data(response_data):
 
 def process_uhs_data(response_data):
     """Process uniform hazard spectrum data from JSON response"""
-    target_frequencies = [1/2475, 1/1000, 1/475, 1/100, 1/50, 1/10]
+    target_frequencies = [1/2475, 1/1000, 1/975, 1/475, 1/100, 1/50, 1/10]
     return_periods = [1/freq for freq in target_frequencies]
     
     uhs_data = []
