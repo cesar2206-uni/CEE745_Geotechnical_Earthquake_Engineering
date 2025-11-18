@@ -1,5 +1,3 @@
-Add a button to download, Acceleration Response Spectra vs Period, in .csv file, only for the case of 1 plot,
-
 import streamlit as st
 import pandas as pd
 import numpy as np
