@@ -311,14 +311,16 @@ def plot_multiple_response_spectra(spectra_params, units):
 st.title("Response Spectra from .AT2 Files")
 st.write("Upload a .AT2 file to explore the data and obtain parameters")
 
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     uploaded_file = st.file_uploader("Choose a file", type=["AT2"])
 
 with col2:
     units = st.selectbox("Select units:", ["m/s²", "g", "cm/s²"])
+with col3:
 	scale_accel = st.number_input(f"Acceleration Scale", value=1.00, step=0.05)
+	
 if uploaded_file is not None:
     filename = uploaded_file.name
     st.success(f"✅ File uploaded: {filename}. BaseLine correction applied.")
