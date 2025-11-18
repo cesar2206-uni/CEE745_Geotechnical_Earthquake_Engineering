@@ -303,7 +303,8 @@ def plot_multiple_response_spectra(spectra_params, units):
     ax.set_ylim(0,)
     st.pyplot(fig)
     plt.close(fig)
-
+    # Return the response spectrum data for CSV download
+    return T, RS
 #===================================================================================================
 # Streamlit code
 #===================================================================================================
@@ -354,7 +355,23 @@ if uploaded_file is not None:
     # Compute T array
     #T = np.concatenate((np.arange(Tmin, 1, .01), np.arange(1, Tmax, .1)))
     T =np.concatenate((np.arange(0.01, 0.05, .01), np.arange(0.05, Tmax, 0.05))) 
-    plot_response_spectrum(accel, dt, T, xi, Resp_type)
+    T_values, RS_values = plot_response_spectrum(accel, dt, T, xi, Resp_type)
+    
+    # Create DataFrame for CSV download
+    df = pd.DataFrame({
+        'Period (s)': T_values,
+        f'{Resp_type}': RS_values
+    })
+    
+    # Add download button for CSV
+    csv = df.to_csv(index=False)
+    st.download_button(
+        label="Download Response Spectra as CSV",
+        data=csv,
+        file_name=f"response_spectra_{filename.split('.')[0]}.csv",
+        mime="text/csv",
+        key="download_csv_single"
+    )
 
 # Comparing multiple files
 st.header("Compare Multiple Response Spectra")
