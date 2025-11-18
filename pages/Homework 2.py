@@ -303,8 +303,8 @@ def plot_multiple_response_spectra(spectra_params, units):
     ax.set_ylim(0,)
     st.pyplot(fig)
     plt.close(fig)
-    # Return the response spectrum data for CSV download
-    return T, RS
+	
+	return T, RS
 #===================================================================================================
 # Streamlit code
 #===================================================================================================
