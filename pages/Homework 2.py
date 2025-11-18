@@ -1,3 +1,5 @@
+Add a button to download, Acceleration Response Spectra vs Period, in .csv file, only for the case of 1 plot,
+
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -233,6 +235,9 @@ def plot_response_spectrum(accel_array, dt, T, xi, Resp_type):
     ax.set_ylim(0,)
     st.pyplot(fig)
     plt.close(fig)
+    
+    # Return the response spectrum data for CSV download
+    return T, RS
 
 #---------------------------------------------------------------------------------------------------
 # Multiple Response Spectrum Plotting
@@ -303,8 +308,7 @@ def plot_multiple_response_spectra(spectra_params, units):
     ax.set_ylim(0,)
     st.pyplot(fig)
     plt.close(fig)
-	
-	return T, RS
+
 #===================================================================================================
 # Streamlit code
 #===================================================================================================
