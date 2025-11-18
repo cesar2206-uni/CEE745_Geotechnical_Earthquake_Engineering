@@ -318,7 +318,7 @@ with col1:
 
 with col2:
     units = st.selectbox("Select units:", ["m/s²", "g", "cm/s²"])
-
+	scale_accel = st.number_input(f"Acceleration Scale", value=1.00, step=0.05)
 if uploaded_file is not None:
     filename = uploaded_file.name
     st.success(f"✅ File uploaded: {filename}. BaseLine correction applied.")
@@ -333,7 +333,7 @@ if uploaded_file is not None:
     # Handle .AT2 files
     if filename.endswith(".AT2"):
         accel, dt = read_AT2_v2(uploaded_file, scaling)
-        
+        accel = accel * scale_accel
 
     # Plot the array of acceleration
     col1, col2, col3 = st.columns([1, 1, 1])
